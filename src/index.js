@@ -333,12 +333,16 @@ class WebSocketAsPromised {
 
   _createWS() {
     this._ws = this._options.createWebSocket(this._url);
-    this._wsSubscription = new Channel.Subscription([
-      { channel: this._ws, event: 'onopen', listener: e => this._handleOpen(e) },
-      { channel: this._ws, event: 'onmessage', listener: e => this._handleMessage(e) },
-      { channel: this._ws, event: 'onerror', listener: e => this._handleError(e) },
-      { channel: this._ws, event: 'onclose', listener: e => this._handleClose(e) },
-    ]).on();
+    // this._wsSubscription = new Channel.Subscription([
+    //   { channel: this._ws, event: 'onopen', listener: e => this._handleOpen(e) },
+    //   { channel: this._ws, event: 'onmessage', listener: e => this._handleMessage(e) },
+    //   { channel: this._ws, event: 'onerror', listener: e => this._handleError(e) },
+    //   { channel: this._ws, event: 'onclose', listener: e => this._handleClose(e) },
+    // ]).on();
+    this._ws.onopen = (event) => this._handleOpen(event);
+    this._ws.onmessage = (event) => this._handleMessage(event);
+    this._ws.onerror = (event) => this._handleError(event);
+    this._ws.onclose = (event) => this._handleClose(event);
   }
 
   _handleOpen(event) {

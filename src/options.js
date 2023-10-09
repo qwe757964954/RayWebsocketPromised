@@ -33,7 +33,9 @@ module.exports = {
    * @param {String} url
    * @returns {WebSocket}
    */
-  createWebSocket: url => new WebSocket(url),
+  createWebSocket: url => {
+    new WebSocket(url);
+  },
 
   /**
    * See {@link Options.packMessage}
