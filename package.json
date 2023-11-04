@@ -1,6 +1,6 @@
 {
   "name": "raywebsocketpromised",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A WebSocket client library providing Promise-based API for connecting, disconnecting and messaging with server",
   "author": {
     "name": "Raytion",
@@ -55,7 +55,9 @@
     "install-local": "^3.0.1",
     "jsdoc-to-markdown": "^6.0.1",
     "lint-staged": "^10.5.3",
-    "mocha": "^8.2.1"
+    "mocha": "^8.2.1",
+    "websocket": "^1.0.33",
+    "ws": "^7.4.2"
   },
   "keywords": [
     "websocket",
